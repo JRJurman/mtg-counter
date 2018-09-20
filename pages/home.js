@@ -19,7 +19,7 @@ module.exports = (store, actions) => {
   const undo = () =>
     actions.undoCounters()
 
-  const addCounter = (element) => () =>
+  const addCounter = (element) => (event) =>
     actions.addCounter(element)
 
   const onincrement = (element) => () =>
@@ -35,8 +35,8 @@ module.exports = (store, actions) => {
     actions.removeCounter(element)
 
   const menu = store.menu ?
-    html`<add-menu revealed=${true} addCounter=${addCounter} onmouseleave=${hideMenu} />` :
-    html`<add-menu onmouseover=${revealMenu} />`
+    html`<add-menu revealed=${true} addCounter=${addCounter} hideMenu=${hideMenu} />` :
+    html`<add-menu revealMenu=${revealMenu} />`
 
   const counters = store.counters.map(counter =>
     html`<mana-counter

@@ -33,8 +33,18 @@ module.exports = (attrs) => {
     ` :
     html`<add-button />`
 
+  const onTouchReveal = !attrs.revealed ? (event) => {
+    event.preventDefault()
+    event.stopPropagation()
+    attrs.revealMenu()
+  } : () => {}
+
+  const onMouseReveal = !attrs.revealed ? (event) => {
+    attrs.revealMenu()
+  } : () => {}
+
   return html`
-    <div style=${style} onmouseleave=${attrs.onmouseleave} onmouseover=${attrs.onmouseover} ontouch=${attrs.onmouseover}>
+    <div style=${style} onmouseleave=${attrs.hideMenu} onmouseover=${onMouseReveal} ontouchstart=${onTouchReveal}>
       ${options}
     </div>
   `

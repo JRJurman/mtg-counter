@@ -37,7 +37,7 @@ module.exports = (attrs) => {
       <div style="width:100%"><counter-button element=${attrs.element} onclick=${attrs.onincrement}>+</counter-button></div>
       <div style="width:100%"><counter-button element=${attrs.element} onclick=${attrs.ondecrement}>-</counter-button></div>
       <div style="width:100%"><counter-button element=${attrs.element} onclick=${attrs.onreset}>o</counter-button></div>
-      <div style="width:100%"><counter-button element=${attrs.element} onclick=${attrs.onremove}>x</counter-button></div>
+      <div style="width:100%"><counter-button element=${attrs.element} onclick=${attrs.onremove} style="border-radius: 0 .4em .4em 0;">x</counter-button></div>
     </div>
   `
 }

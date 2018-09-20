@@ -1,5 +1,5 @@
 module.exports = {
-  init: () => [{element: 'blue', count: 0, diff: 2}, {element: 'generic', count: 2, diff: 0}],
+  init: () => [],
   addCounter: (counters, element, actions) => {
     if (counters.filter(counter => element === counter.element).length === 0) {
       return counters.concat({element, count: 0, diff: 0})
