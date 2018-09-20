@@ -70,8 +70,8 @@ function r(e,t){if(e===t)return 0;for(var n=e.length,r=t.length,o=0,i=Math.min(n
         <div><mana-colorless onclick=${e.addCounter("colorless")} height="2em" width="2em" /></div>
         <div><mana-generic onclick=${e.addCounter("generic")} height="2.9em" width="2.9em" style="margin-bottom: -0.3em;" /></div>
       </div>
-    `:r`<add-button />`,n=e.revealed?()=>{}:t=>{t.preventDefault(),e.revealMenu()},o=e.revealed?()=>{}:t=>{t.stopPropagation(),e.revealMenu()};return r`
-    <div style=${"\n    cursor: pointer;\n    position: fixed;\n    bottom: 1em;\n    right: 1em;\n    text-align: center;\n  "} onmouseleave=${e.hideMenu} onmouseover=${o} ontouch=${n}>
+    `:r`<add-button />`,n=e.revealed?()=>{}:t=>{t.preventDefault(),t.stopPropagation(),e.revealMenu()},o=e.revealed?()=>{}:t=>{e.revealMenu()};return r`
+    <div style=${"\n    cursor: pointer;\n    position: fixed;\n    bottom: 1em;\n    right: 1em;\n    text-align: center;\n  "} onmouseleave=${e.hideMenu} onmouseover=${o} ontouchstart=${n}>
       ${t}
     </div>
   `})},function(e,t,n){const r=n(1).html({});e.exports=(e=>{return r`
@@ -85,7 +85,7 @@ function r(e,t){if(e===t)return 0;for(var n=e.length,r=t.length,o=0,i=Math.min(n
       <div style="width:100%"><counter-button element=${e.element} onclick=${e.onincrement}>+</counter-button></div>
       <div style="width:100%"><counter-button element=${e.element} onclick=${e.ondecrement}>-</counter-button></div>
       <div style="width:100%"><counter-button element=${e.element} onclick=${e.onreset}>o</counter-button></div>
-      <div style="width:100%"><counter-button element=${e.element} onclick=${e.onremove} style="border-radius: 0 14% 14% 0;">x</counter-button></div>
+      <div style="width:100%"><counter-button element=${e.element} onclick=${e.onremove} style="border-radius: 0 .4em .4em 0;">x</counter-button></div>
     </div>
   `})},function(e,t,n){const r=n(1).html({"counter-button":n(20),tap:n(34),untap:n(35)}),o="\n  cursor: pointer;\n  margin-top: 0.2em;\n";e.exports=(e=>r`
     <div style=${"\n  border: solid var(--text-color);\n  border-radius: 0.5em;\n  margin-top: 0.1em;\n  text-align: center;\n  display: flex;\n  justify-content: space-around;\n  align-items: center;\n"}>
@@ -108,4 +108,4 @@ function r(e,t){if(e===t)return 0;for(var n=e.length,r=t.length,o=0,i=Math.min(n
       <circle cx="300" cy="300" r="300" fill="#231f20"/>
       <path d="m473.7 145.7-75.9 44.5c37 57.4 55.4 110.4 55.4 159.1 0 39.9-11.8 71.9-35.4 95.9-23.6 24.1-55.3 36.1-95.2 36.1-66.7 0-142.3-34.8-226.9-104.3l60.6-59.9c57.9 52.6 112.4 78.8 163.5 78.8 18.5 0 31.2-3.4 38.3-10.2 7.1-6.8 10.6-19.5 10.6-37.9 0-37-11.2-69.6-33.6-97.8l-54 75.9 0-207.2 192.6 27" fill="#fff"/>
     </svg>
-  `)},function(e,t){e.exports={init:()=>!1,revealMenu:()=>!0,hideMenu:()=>!1}},function(e,t){e.exports={init:()=>[{element:"blue",count:0,diff:2},{element:"generic",count:2,diff:0}],addCounter:(e,t,n)=>0===e.filter(e=>t===e.element).length?e.concat({element:t,count:0,diff:0}):(n.incrementCounter(t),e),removeCounter:(e,t)=>e.filter(e=>e.element!==t),resetCounter:(e,t)=>e.map(e=>e.element===t?Object.assign({},e,{diff:-e.count}):e),incrementCounter:(e,t)=>e.map(e=>e.element===t?Object.assign({},e,{diff:e.diff+1}):e),decrementCounter:(e,t)=>e.map(e=>e.element===t?Object.assign({},e,{diff:e.diff-1}):e),commitCounters:e=>e.map(e=>Object.assign({},e,{count:e.count+e.diff,diff:0})),undoCounters:e=>e.map(e=>Object.assign({},e,{diff:0}))}}]);
+  `)},function(e,t){e.exports={init:()=>!1,revealMenu:()=>!0,hideMenu:()=>!1}},function(e,t){e.exports={init:()=>[],addCounter:(e,t,n)=>0===e.filter(e=>t===e.element).length?e.concat({element:t,count:0,diff:0}):(n.incrementCounter(t),e),removeCounter:(e,t)=>e.filter(e=>e.element!==t),resetCounter:(e,t)=>e.map(e=>e.element===t?Object.assign({},e,{diff:-e.count}):e),incrementCounter:(e,t)=>e.map(e=>e.element===t?Object.assign({},e,{diff:e.diff+1}):e),decrementCounter:(e,t)=>e.map(e=>e.element===t?Object.assign({},e,{diff:e.diff-1}):e),commitCounters:e=>e.map(e=>Object.assign({},e,{count:e.count+e.diff,diff:0})),undoCounters:e=>e.map(e=>Object.assign({},e,{diff:0}))}}]);
